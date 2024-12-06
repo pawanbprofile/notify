@@ -5,7 +5,7 @@ import express, { json } from "express";
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
 const app = express();
-app.arguments(express.json());
+app.use(express.json());
 initializeApp({
   credential: applicationDefault(),
   projectId: "fir-rndemo-524ce",
