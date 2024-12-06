@@ -1,7 +1,7 @@
 import { initializeApp, applicationDefault } from "firebase-admin/app";
 import { getMessaging } from "firebase-admin/messaging";
 import express, { json } from "express";
-import { app } from "firebase-admin";
+
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
 const app = express();
