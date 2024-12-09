@@ -27,7 +27,6 @@ app.use(function (req, res, next) {
 
 initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  projectId: "fir-rndemo-524ce",
 });
 
 app.post("/send", function (req, res) {
