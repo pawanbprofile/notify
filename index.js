@@ -1,25 +1,16 @@
-import { initializeApp, applicationDefault } from "firebase-admin/app";
-import { getMessaging } from "firebase-admin/messaging";
-import express, { json } from "express";
-import cors from "cors";
-import admin from "firebase-admin";
-//import serviceAccount from "fir-rndemo-524ce-firebase-adminsdk-ydg52-dd1499a7b4.json";
-import { readFileSync } from "fs";
-const serviceAccount = JSON.parse(
-  readFileSync("./fir-rndemo-524ce-firebase-adminsdk-ydg52-5f8590cdf9.json")
-);
+const express = require("express");
+const admin = require("firebase-admin");
+const cors = require("cors");
+const serviceAccount = require("./fir-rndemo-524ce-firebase-adminsdk-ydg52-3e8d76ddda.json");
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
-
 const app = express();
 app.use(express.json());
-
 app.use(cors({ origin: "*" }));
 app.use(
   cors({
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
-
 app.use(function (req, res, next) {
   res.setHeader("Content-Type", "application/json");
   next();
@@ -39,7 +30,8 @@ app.post("/send", function (req, res) {
     token:
       "cJhKKyFUTXy60uva2fkOVJ:APA91bGVm7_U6ZSCqnqDxsoRnvzbr_yaXKebE9E1k2xH4m3jkL60JC3PGjsW56gHhPyDWWrnEf9I5WP9TOYWuJvIvBuPAMCD49LOQ2RsM8REM5ea7RLqQwY",
   };
-  getMessaging()
+  admin
+    .messaging()
     .send(message)
     .then((response) => {
       res
