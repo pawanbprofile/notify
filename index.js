@@ -26,7 +26,9 @@ app.use(function (req, res, next) {
 });
 
 initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(
+    require("fir-rndemo-524ce-firebase-adminsdk-ydg52-5f8590cdf9.json")
+  ),
 });
 
 app.post("/send", function (req, res) {
