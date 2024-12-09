@@ -3,8 +3,11 @@ import { getMessaging } from "firebase-admin/messaging";
 import express, { json } from "express";
 import cors from "cors";
 import admin from "firebase-admin";
-import serviceAccount from "fir-rndemo-524ce-firebase-adminsdk-ydg52-dd1499a7b4.json";
-
+//import serviceAccount from "fir-rndemo-524ce-firebase-adminsdk-ydg52-dd1499a7b4.json";
+import { readFileSync } from "fs";
+const serviceAccount = JSON.parse(
+  readFileSync("fir-rndemo-524ce-firebase-adminsdk-ydg52-dd1499a7b4.json")
+);
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
 const app = express();
