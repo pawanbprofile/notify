@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-initializeApp({
+admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
