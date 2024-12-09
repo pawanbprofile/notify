@@ -6,7 +6,7 @@ import admin from "firebase-admin";
 //import serviceAccount from "fir-rndemo-524ce-firebase-adminsdk-ydg52-dd1499a7b4.json";
 import { readFileSync } from "fs";
 const serviceAccount = JSON.parse(
-  readFileSync("fir-rndemo-524ce-firebase-adminsdk-ydg52-dd1499a7b4.json")
+  readFileSync("fir-rndemo-524ce-firebase-adminsdk-ydg52-5f8590cdf9.json")
 );
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
