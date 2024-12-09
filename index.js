@@ -2,6 +2,8 @@ import { initializeApp, applicationDefault } from "firebase-admin/app";
 import { getMessaging } from "firebase-admin/messaging";
 import express, { json } from "express";
 import cors from "cors";
+import admin from "firebase-admin";
+import serviceAccount from "/Users/pawanbangalala/Documents/work/servers/notify/fir-rndemo-524ce-firebase-adminsdk-ydg52-dd1499a7b4.json";
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
@@ -19,8 +21,9 @@ app.use(function (req, res, next) {
   res.setHeader("Content-Type", "application/json");
   next();
 });
+
 initializeApp({
-  credential: applicationDefault(),
+  credential: admin.credential.cert(serviceAccount),
   projectId: "fir-rndemo-524ce",
 });
 
